@@ -1,0 +1,181 @@
+{
+    "Test_de_IQ": {
+      "pourcentage": "25%",
+      "nombre_de_questions": 4,
+      "questions": [
+        {
+          "question": "Quel est le prochain nombre dans la série : 2, 4, 6, 8, ... ?",
+          "reponses": {
+            "a": 10,
+            "b": 12,
+            "c": 14,
+            "d": 16
+          },
+          "bonne_reponse": "d"
+        },
+        {
+          "question": "Si A = 2 et B = 4, quel est le résultat de A + B ?",
+          "reponses": {
+            "a": 4,
+            "b": 6,
+            "c": 8,
+            "d": 10
+          },
+          "bonne_reponse": "c"
+        },
+        {
+          "question": "Quel est le mot qui ne correspond pas aux autres : chat, chien, oiseau, table ?",
+          "reponses": {
+            "a": "chat",
+            "b": "chien",
+            "c": "oiseau",
+            "d": "table"
+          },
+          "bonne_reponse": "d"
+        },
+        {
+          "question": "Complétez la série logique : 1, 4, 9, 16, ...",
+          "reponses": {
+            "a": 25,
+            "b": 30,
+            "c": 36,
+            "d": 49
+          },
+          "bonne_reponse": "d"
+        }
+      ]
+    },
+    "Test_d_anglais": {
+      "pourcentage": "25%",
+      "nombre_de_questions": 4,
+      "questions": [
+        {
+          "question": "Quelle est la forme du verbe correcte dans cette phrase : 'He ______ (go) to school every day.' ?",
+          "reponses": {
+            "a": "going",
+            "b": "goes",
+            "c": "go",
+            "d": "gone"
+          },
+          "bonne_reponse": "b"
+        },
+        {
+          "question": "Quel est le synonyme de 'happy' ?",
+          "reponses": {
+            "a": "sad",
+            "b": "angry",
+            "c": "joyful",
+            "d": "tired"
+          },
+          "bonne_reponse": "c"
+        },
+        {
+          "question": "Quel est l'antonyme de 'big' ?",
+          "reponses": {
+            "a": "small",
+            "b": "large",
+            "c": "huge",
+            "d": "gigantic"
+          },
+          "bonne_reponse": "a"
+        },
+        {
+          "question": "Complétez la phrase : 'I ______ (eat) lunch at 12 o'clock.'",
+          "reponses": {
+            "a": "am eating",
+            "b": "eat",
+            "c": "eats",
+            "d": "ate"
+          },
+          "bonne_reponse": "b"
+        }
+      ]
+    },
+    "Test_technique_HTML_CSS": {
+      "pourcentage": "50%",
+      "nombre_de_questions": 8,
+      "questions": [
+        {
+          "question": "Qu'est-ce que HTML?",
+          "reponses": {
+            "a": "Un langage de programmation pour créer des pages web dynamiques.",
+            "b": "Un langage de balisage pour structurer le contenu des pages web.",
+            "c": "Un langage de style pour définir la présentation des pages web.",
+            "d": "Un langage de script pour ajouter des fonctionnalités interactives aux pages web."
+          },
+          "bonne_reponse": "b"
+        },
+        {
+          "question": "Quelle balise est utilisée pour créer une liste non ordonnée en HTML?",
+          "reponses": {
+            "a": "<ul>",
+            "b": "<ol>",
+            "c": "<li>",
+            "d": "<list>"
+          },
+          "bonne_reponse": "a"
+        },
+        {
+          "question": "Quelle propriété CSS est utilisée pour définir la couleur du texte?",
+          "reponses": {
+            "a": "font-color",
+            "b": "text-color",
+            "c": "color",
+            "d": "font-style"
+          },
+          "bonne_reponse": "c"
+        },
+        {
+          "question": "Quelle propriété CSS est utilisée pour définir la taille de la police de caractères?",
+          "reponses": {
+            "a": "font-size",
+            "b": "text-size",
+            "c": "size",
+            "d": "font-style"
+          },
+          "bonne_reponse": "a"
+        },
+        {
+          "question": "Quelle est la signification de 'CSS'?",
+          "reponses": {
+            "a": "Cascading Style Sheets",
+            "b": "Creative Style Sheets",
+            "c": "Computer Style Sheets",
+            "d": "Colorful Style Sheets"
+          },
+          "bonne_reponse": "a"
+        },
+        {
+          "question": "Quelle balise est utilisée pour définir une cellule dans un tableau HTML?",
+          "reponses": {
+            "a": "<td>",
+            "b": "<tr>",
+            "c": "<th>",
+            "d": "<table>"
+          },
+          "bonne_reponse": "a"
+        },
+        {
+          "question": "Quelle propriété CSS est utilisée pour définir la couleur de fond d'un élément?",
+          "reponses": {
+            "a": "background-color",
+            "b": "color",
+            "c": "background",
+            "d": "background-image"
+          },
+          "bonne_reponse": "a"
+        },
+        {
+          "question": "Quelle est la signification de 'HTML'?",
+          "reponses": {
+            "a": "Hyper Text Markup Language",
+            "b": "Hyperlinks and Text Markup Language",
+            "c": "Home Tool Markup Language",
+            "d": "Hyperlink Text Management Language"
+          },
+          "bonne_reponse": "a"
+        }
+      ]
+    }
+  }
+  
