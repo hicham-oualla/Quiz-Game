@@ -9,62 +9,74 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
     body {
-        
       background-color: rgba(225, 180, 223, 1);
       margin: 0;
       padding: 0;
       font-family: 'Jockey One';
     }
-  
-
     .quiz-container {
-    position: absolute;
-    width: 309px;
-    height: 170px;
-    background: rgba(255, 255, 255, 0.35);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    top: 63%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 32px;
-    margin-top: 53px;
-}
-button{
-    margin-top: 93px;
-}
-
-    
-    p{
-        color: #CF00FD;
+      position: absolute;
+      width: 309px;
+      height: 170px;
+      background: rgba(255, 255, 255, 0.35);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 5px;
+      top: 63%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 32px;
+      margin-top: 53px;
+    }
+    button {
+      margin-top: 93px;
+    }
+    p {
+      color: #CF00FD;
     }
   </style>
 </head>
 <body>
   <!-- Quiz Title -->
-  <div class="text-center ">
-    <img style="padding-top: 80px;" src="/images/QUIZ GAME (1).png"  alt="">
-    <p style="  font-family: 'Jockey One';font-size: 22px;padding-top: 20px;
-">Vous cherchez à enrichir vos connaissances et à tester vos connaissances en <br>
-       programmation et en logique, en plus de quelques langues étrangères, <br>
-       tout en profitant de votre temps ?</p>
+  <div class="text-center">
+    <img style="padding-top: 80px;" src="/images/QUIZ GAME (1).png" alt="">
+    <p style="font-family: 'Jockey One'; font-size: 22px; padding-top: 20px;">Vous cherchez à enrichir vos connaissances et à tester vos connaissances en <br> programmation et en logique, en plus de quelques langues étrangères, <br> tout en profitant de votre temps ?</p>
     <h3>Nous avons le test parfait pour vous !</h3>
-    <br>
-    <br>
   </div>
 
   <div class="quiz-container">
-    <h4 class="text-center">Entrer votre nom </h4>
+    <h4 class="text-center">Entrer votre nom</h4>
     <div class="input border border-dark rounded">
-      <input type="text" placeholder="Full name" aria-label="Full name" class="form-control">
+      <input type="text" placeholder="Full name" id="full-name" aria-label="Full name" class="form-control">
     </div>
 
-
-  <div class=" gap-2 col-6 mx-auto">
-        <a href="quiz.html">  <button class="btn btn-primary"  type="button">Submit</button></a>
-        <button type="button" class="btn btn-primary btn-sm">Small button</button>
+    <div class="gap-2 col-6 mx-auto">
+      <!-- Call startQuiz() function when the button is clicked -->
+      <button onclick="startQuiz()" type="button" id="start-btn" class="btn btn-primary btn-sm">START QUIZ</button>
+    </div>
   </div>
-</div>
+
+  <!-- SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    // Function to redirect to quiz.html and show SweetAlert
+    function startQuiz() {
+      var fullname = document.getElementById('full-name').value;
+      Swal.fire({
+        text: ' Hi ' + fullname + ' The Quiz is Started!',
+        imageUrl: 'https://cdn-icons-png.flaticon.com/512/6028/6028784.png',
+        imageWidth: 200,
+        imageAlt: 'Custom image'
+      });
+
+      // Redirect to quiz.html after showing the alert (optional)
+      setTimeout(function() {
+        window.location.href = 'quiz.html';
+      }, 2000); // Adjust the delay as needed
+    }
+  </script>
+
   <!-- Bootstrap JS and dependencies -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
