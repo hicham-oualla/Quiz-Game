@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
+  <title>BONN</title>
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>  @import url('https://fonts.googleapis.com/css2?family=Jockey+One&display=swap');
   
     body {
+      font-family: 'Jockey One';
         
         
       background-color:#94E7A9;
@@ -33,11 +34,22 @@
 }
 
 button{
-    margin-top: 53px;
+  margin-top: 61px;
+    background-color: rgba(186, 100, 200, 1);
+    border: none;
+    border-radius: 10px;
+    height: 36px;
+    width: 100px;
+    margin-left: 61px;
 }
 .cas{
     margin-left: 38%;
     width: 120px;
+}
+#luck {
+    margin-left: 315px;
+    margin-top: -60px;
+    width: 431PX;
 }
 
 
@@ -45,24 +57,26 @@ button{
  
 </head>
 <body>
-    <img class="img-fluid mx-auto d-block" style="width: px;" src="/images/success-5025797_1280 1.png" alt="success logo">
-
-
+   
+    <div class="container ">
+      <img  id="luck" src="/images/success-5025797_1280 1.png" alt="success logo">
   <div class="quiz-container">
-    <h4 style="color: azure;">Félicitations pour ton succès dans le jeu ! <br> Tu es formidable!</h4>
+
+    <h4 class="text-center" style="color: azure;">Félicitations pour ton succès dans le jeu ! <br> Tu es  <span style="color: #0FFF6F;">formidable</span> !</h4>
     <h3 class="text-center">votre score est : 80%</h3>
     <img class="cas" src="/images/trophy.png" alt=""  
     style="margin-left: 40%;">
 
     <div>
          <div class="d-grid gap-2 col-6 mx-auto">
-    <button class="btn btn-primary" type="button">Reply</button>
+    <button class="" type="button"><span style="color: azure;">Restart</span></button>
   </div> 
     </div>
    
     
     </div>
   </div>
+</div>
 
   <!-- <div class="d-grid gap-2 col-6 mx-auto">
     <button class="btn btn-primary" type="button">Reply</button>
