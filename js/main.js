@@ -1,10 +1,8 @@
-    // Timer countdown
-    var timeleft = 9;
-    var downloadTimer = setInterval(function(){
-      timeleft--;
-      document.getElementById("time").textContent = timeleft;
-      if(timeleft <= 0) {
-        clearInterval(downloadTimer);
-        document.getElementById("time").textContent = "Time's up!";
-      }
-    }, 1000);
+const question = document.getElementById('question');
+const choices = Array.from(document.getElementsByClassName('choice-text'));
+
+let currentQuestion = {};
+let acceptingAnswers = false;
+let score = 0;
+let questionCounter = 0;
+let availableQuestions = [];
