@@ -98,6 +98,15 @@ const questionsIQ = [
 const CORRECT_BONUS = 0;
 const MAX_QUESTIONS = 16;
 
+
+// Calculate the percentage of questions answered
+function updateProgress() {
+  const percentage = (questionCounter / MAX_QUESTIONS) * 100;
+  progressBar.style.width = percentage + '%';
+  progressBar.setAttribute('aria-valuenow', percentage);
+}
+
+
 // Start the game
 function startGame() {
   questionCounter = 0;
