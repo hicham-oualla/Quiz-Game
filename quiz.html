@@ -56,6 +56,15 @@
       margin-bottom: 20px;
       text-align: center;
     }
+    /* Correct choice */
+    .correct {
+      background-color: #47BB75; /* Green background for correct choice */
+    }
+
+    /* Incorrect choice */
+    .incorrect {
+      background-color: #e84634; /* Red background for incorrect choice */
+    }
   </style>
 
 </head>
@@ -68,23 +77,24 @@
         <div class="quiz-container">
           <!-- Question Section -->
           <div class="question-card">
-            <img src="" alt="">
-            <img class="mb-4" id="categorie bg-primary ">
-            <p class="card-text">What is the capital of France?</p>
+            <h4 class="mb-4 bg-primary">ANGLAIS</h4>
+            <p class="card-text" id="question">?????</p>
           </div>
           <!-- Response Options Section -->
           <div class="list-group response-options">
-            <button type="button" class="btn btn-custom mb-2 d-block mx-auto w-100">Option A</button>
-            <button type="button" class="btn btn-custom mb-2 d-block mx-auto w-100">Option B</button>
-            <button type="button" class="btn btn-custom mb-2 d-block mx-auto w-100">Option C</button>
-            <button type="button" class="btn btn-custom mb-2 d-block mx-auto w-100">Option D</button>
+            <button type="button" data-number="1" class="choice-text choice-btn btn btn-custom mb-2 d-block mx-auto w-100">----</button>
+            <button type="button" data-number="2" class="choice-text choice-btn btn btn-custom mb-2 d-block mx-auto w-100">----</button>
+            <button type="button" data-number="3" class="choice-text choice-btn btn btn-custom mb-2 d-block mx-auto w-100">----</button>
+            <button type="button" data-number="4" class="choice-text choice-btn btn btn-custom mb-2 d-block mx-auto w-100">----</button>
           </div>
+          
           <!-- Progress Bar Section -->
           <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
           <!-- Timer Section -->
-          <div id="timer"><i class="fa-solid fa-stopwatch"> </i> Time <span id="time">60</span> seconds</div>
+          <div id="timer"><i class="fa-solid fa-stopwatch"> </i> Time <span id="time">4:59</span></div>
+
         </div>
       </div>
     </div>
@@ -95,7 +105,7 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <!-- file js -->
-  <script src="js/main.js">
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
+
