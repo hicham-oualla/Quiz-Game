@@ -98,7 +98,6 @@ const questionsIQ = [
 const CORRECT_BONUS = 0;
 const MAX_QUESTIONS = 16;
 
-
 // Calculate the percentage of questions answered
 function updateProgress() {
   const percentage = (questionCounter / MAX_QUESTIONS) * 100;
@@ -106,18 +105,14 @@ function updateProgress() {
   progressBar.setAttribute('aria-valuenow', percentage);
 }
 
-
 // Start the game
 function startGame() {
   questionCounter = 0;
   score = 0;
-  // Combine all questions into one array
   availableQuestions = [...questionsAnalais, ...questionsIQ];
-  // Shuffle the questions
   availableQuestions.sort(() => Math.random() - 0.5);
   getNewQuestion();
 }
-
 
 // Function to get a new question
 function getNewQuestion() {
@@ -126,10 +121,8 @@ function getNewQuestion() {
     return;
   }
 
-  // Pick the current question
   currentQuestion = availableQuestions[questionCounter];
-  question.innerText = currentQuestion.question;
-
+  question.innerHTML = getQuestionCategoryHTML(currentQuestion);
   choices.forEach((choice, index) => {
     const choiceKey = "choice" + (index + 1);
     choice.innerText = currentQuestion.reponses[choiceKey];
@@ -196,10 +189,27 @@ function updateTimer() {
 function finishQuiz() {
   clearInterval(timerInterval);
   if (score >= 12) {
-    window.location.href = "success.html";
+    window.location.href = "SUCCES.html";
   } else {
-    window.location.href = "failed.html";
+    window.location.href = "fail.html";
   }
+}
+
+function getQuestionCategoryHTML(question) {
+  let categoryHTML = "";
+  const category = getQuestionCategory(question);
+  if (category === "ANGLAIS") {
+    categoryHTML = '<h4 class="mb-4 bg-primary">ANGLAIS</h4>';
+  } else if (category === "IQ") {
+    categoryHTML = '<h4 class="mb-4 bg-success">IQ</h4>';
+  } else if (category === "Technique") {
+    categoryHTML = '<h4 class="mb-4 bg-info">Technique</h4>';
+  }
+  return categoryHTML;
+}
+
+function getQuestionCategory(question) {
+  return question.category; // Assuming category property exists in each question object
 }
 
 // Start the timer when the quiz starts
