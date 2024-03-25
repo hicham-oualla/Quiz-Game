@@ -94,3 +94,17 @@ const questionsIQ = [
     }
   }
 ];
+
+const CORRECT_BONUS = 0;
+const MAX_QUESTIONS = 16;
+
+// Start the game
+function startGame() {
+  questionCounter = 0;
+  score = 0;
+  // Combine all questions into one array
+  availableQuestions = [...questionsAnalais, ...questionsIQ];
+  // Shuffle the questions
+  availableQuestions.sort(() => Math.random() - 0.5);
+  getNewQuestion();
+}
