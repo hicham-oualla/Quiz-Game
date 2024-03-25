@@ -108,3 +108,49 @@ function startGame() {
   availableQuestions.sort(() => Math.random() - 0.5);
   getNewQuestion();
 }
+
+
+// Function to get a new question
+function getNewQuestion() {
+  if (questionCounter >= MAX_QUESTIONS || availableQuestions.length === 0) {
+    finishQuiz();
+    return;
+  }
+
+  // Pick the current question
+  currentQuestion = availableQuestions[questionCounter];
+  question.innerText = currentQuestion.question;
+
+  choices.forEach((choice, index) => {
+    const choiceKey = "choice" + (index + 1);
+    choice.innerText = currentQuestion.reponses[choiceKey];
+    choice.dataset.number = currentQuestion.reponses[choiceKey];
+  });
+
+  acceptingAnswers = true;
+  questionCounter++;
+  updateProgress();
+}
+
+// Event listener for choice selection
+choices.forEach(choice => {
+  choice.addEventListener('click', e => {
+    if (!acceptingAnswers) return;
+    acceptingAnswers = false;
+    const selectedChoice = e.target;
+    const selectedAnswer = selectedChoice.dataset['number'];
+    const correctAnswer = currentQuestion.reponses['answer'];
+
+    const classToApply = selectedAnswer === correctAnswer ? "correct" : "incorrect";
+    selectedChoice.classList.add(classToApply);
+
+    if (classToApply === "correct") {
+      score += CORRECT_BONUS;
+    }
+
+    setTimeout(() => {
+      selectedChoice.classList.remove('correct', 'incorrect');
+      getNewQuestion();
+    }, 1000);
+  });
+});
