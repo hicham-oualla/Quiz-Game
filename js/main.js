@@ -6,7 +6,7 @@ let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuestions = [];
-
+const progressBar = document.querySelector('.progress-bar');
 
 
 const questionsAnalais = [
@@ -163,3 +163,45 @@ choices.forEach(choice => {
     }, 1000);
   });
 });
+
+// Timer
+const timerDisplay = document.getElementById('time');
+let minutes = 4;
+let seconds = 59;
+let timerInterval;
+
+// Function to start the timer
+function startTimer() {
+  timerInterval = setInterval(updateTimer, 1000);
+}
+
+// Function to update the timer display
+function updateTimer() {
+  if (seconds > 0) {
+    seconds--;
+  } else if (minutes > 0) {
+    minutes--;
+    seconds = 59;
+  } else {
+    clearInterval(timerInterval);
+    finishQuiz();
+  }
+
+  const displayMinutes = minutes < 10 ? "0" + minutes : minutes;
+  const displaySeconds = seconds < 10 ? "0" + seconds : seconds;
+  timerDisplay.textContent = displayMinutes + ":" + displaySeconds;
+}
+
+// Function to finish the quiz
+function finishQuiz() {
+  clearInterval(timerInterval);
+  if (score >= 12) {
+    window.location.href = "success.html";
+  } else {
+    window.location.href = "failed.html";
+  }
+}
+
+// Start the timer when the quiz starts
+startTimer();
+startGame();
