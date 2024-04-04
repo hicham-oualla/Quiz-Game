@@ -34,24 +34,35 @@
 }
 
 button{
-  margin-top: 61px;
+  margin-top: 31px;
     background-color: rgba(186, 100, 200, 1);
     border: none;
     border-radius: 10px;
     height: 36px;
     width: 100px;
-    margin-left: 61px;
+    margin-left: 31%;
 }
 .cas{
     margin-left: 38%;
     width: 120px;
 }
 #luck {
-    margin-left: 315px;
-    margin-top: -60px;
+    margin-left: 350px;
+    margin-top: -140px;
     width: 431PX;
 }
-
+@media screen and (max-width: 768px) {
+  .quiz-container {
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 5px;
+      padding: 20px;
+      background:#47BB75;
+    }
+  #luck {
+    margin-left: -45px;
+    margin-top:   -74px;
+}
+}
 
   </style>
  
@@ -63,13 +74,13 @@ button{
   <div class="quiz-container">
 
     <h4 class="text-center" style="color: azure;">Félicitations pour ton succès dans le jeu ! <br> Tu es  <span style="color: #0FFF6F;">formidable</span> !</h4>
-    <h3 class="text-center">votre score est : 80%</h3>
+
     <img class="cas" src="/images/trophy.png" alt=""  
     style="margin-left: 40%;">
 
     <div>
          <div class="d-grid gap-2 col-6 mx-auto">
-    <button class="" type="button"><span style="color: azure;">Restart</span></button>
+          <button class="text-center" type="button"><a href="home.html"><span style="color: azure;">Restart</span></a></button>
   </div> 
     </div>
    

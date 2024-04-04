@@ -1,58 +1,52 @@
-const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
-
+const question = document.getElementById('question');
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
-let availableQuestions = [];
 const progressBar = document.querySelector('.progress-bar');
 
-
-const questionsAnalais = [
+const availableQuestions = [
   {
-    "question": "What is the capital of France?",
+    "question": "Quelle est la forme du verbe correcte dans cette phrase : 'He ______ (go) to school every day.' ?",
     "reponses": {
-      "choice1": "London",
-      "choice2": "Paris",
-      "choice3": "Berlin",
-      "choice4": "Rome",
-      "answer": "2"
+      "choice1": "going",
+      "choice2": "goes",
+      "choice3": "go",
+      "choice4": "gone",
+      "answer": "goes" // Correct answer placed under "reponses" object
     }
   },
   {
-    "question": "Who wrote 'Romeo and Juliet'?",
+    "question": "Quel est le synonyme de 'happy' ?",
     "reponses": {
-      "choice1": "William Shakespeare",
-      "choice2": "Charles Dickens",
-      "choice3": "Jane Austen",
-      "choice4": "Mark Twain",
-      "answer": "1"
+      "choice1": "sad",
+      "choice2": "angry",
+      "choice3": "joyful",
+      "choice4": "tired",
+      "answer": "joyful" // Correct answer placed under "reponses" object
     }
   },
   {
-    "question": "Which planet is known as the Red Planet?",
+    "question": "Quel est l'antonyme de 'big' ?",
     "reponses": {
-      "choice1": "Jupiter",
-      "choice2": "Mars",
-      "choice3": "Venus",
-      "choice4": "Mercury",
-      "answer": "2"
+      "choice1": "small",
+      "choice2": "large",
+      "choice3": "huge",
+      "choice4": "gigantic",
+      "answer": "small" // Correct answer placed under "reponses" object
     }
   },
   {
-    "question": "What is the chemical symbol for water?",
+    "question": "Complétez la phrase : 'I ______ (eat) lunch at 12 o'clock.'",
     "reponses": {
-      "choice1": "Wo",
-      "choice2": "Wa",
-      "choice3": "H2O",
-      "choice4": "Hy",
-      "answer": "3"
+      "choice1": "am eating",
+      "choice2": "eat",
+      "choice3": "eats",
+      "choice4": "ate",
+      "answer": "eat" // Correct answer placed under "reponses" object
     }
-  }
-];
-
-const questionsIQ = [
+  },
   {
     "question": "Quel est le résultat de 5 * 5 ?",
     "reponses": {
@@ -92,41 +86,127 @@ const questionsIQ = [
       "choice4": "9",
       "answer": "8"
     }
+  },
+  {
+    "question": "Quelle est la principale utilisation de JavaScript dans le développement web ?",
+    "reponses": {
+      "choice1": "Manipulation du style CSS",
+      "choice2": "Gestion du contenu HTML",
+      "choice3": "Logique et comportement interactif des pages web",
+      "choice4": "Traitement des requêtes SQL",
+      "answer": "Logique et comportement interactif des pages web"
+    }
+  },
+  {
+    "question": "Qu'est-ce que le DOM en JavaScript ?",
+    "reponses": {
+      "choice1": "Document Object Model",
+      "choice2": "Data Object Model",
+      "choice3": "Dynamic Object Management",
+      "choice4": "Digital Output Mode",
+      "answer": "Document Object Model"
+    }
+  },
+  {
+    "question": "Quelle méthode est utilisée pour ajouter un élément à la fin d'un tableau en JavaScript ?",
+    "reponses": {
+      "choice1": "append()",
+      "choice2": "push()",
+      "choice3": "addToEnd()",
+      "choice4": "concat()",
+      "answer": "push()"
+    }
+  },
+  {
+    "question": "Que signifie CSS ?",
+    "reponses": {
+      "choice1": "Cascading Style Sheets",
+      "choice2": "Creative Style Solutions",
+      "choice3": "Computer Style Selection",
+      "choice4": "Categorized Styling System",
+      "answer": "Cascading Style Sheets"
+    }
+  },
+  {
+    "question": "Quel sélecteur CSS est utilisé pour cibler un élément avec une classe spécifique ?",
+    "reponses": {
+      "choice1": "class",
+      "choice2": "id",
+      "choice3": "tag",
+      "choice4": "element",
+      "answer": "class"
+    }
+  },
+  {
+    "question": "Quel est l'opérateur de comparaison strict en JavaScript ?",
+    "reponses": {
+      "choice1": "==",
+      "choice2": "===",
+      "choice3": "!=",
+      "choice4": "!==",
+      "answer": "==="
+    }
+  },
+  {
+    "question": "Quelle méthode JavaScript est utilisée pour retirer le dernier élément d'un tableau ?",
+    "reponses": {
+      "choice1": "pop()",
+      "choice2": "removeLast()",
+      "choice3": "deleteLast()",
+      "choice4": "splice()",
+      "answer": "pop()"
+    }
+  },
+  {
+    "question": "Que signifie HTML ?",
+    "reponses": {
+      "choice1": "Hyper Text Markup Language",
+      "choice2": "High Tech Modern Language",
+      "choice3": "Home Tool Management Language",
+      "choice4": "Human Touch Machine Language",
+      "answer": "Hyper Text Markup Language"
+    }
   }
 ];
 
-const CORRECT_BONUS = 0;
+const CORRECT_BONUS = 1;
 const MAX_QUESTIONS = 16;
 
-// Calculate the percentage of questions answered
+// Calculer le pourcentage pour la barre de progression
 function updateProgress() {
-  const percentage = (questionCounter / MAX_QUESTIONS) * 100;
-  progressBar.style.width = percentage + '%';
-  progressBar.setAttribute('aria-valuenow', percentage);
+  const pourcentage = (questionCounter / MAX_QUESTIONS) * 100;
+  progressBar.style.width = pourcentage + '%';
+  progressBar.setAttribute('aria-valuenow', pourcentage);
 }
 
-// Start the game
+// Démarrer le jeu
 function startGame() {
   questionCounter = 0;
   score = 0;
-  availableQuestions = [...questionsAnalais, ...questionsIQ];
-  availableQuestions.sort(() => Math.random() - 0.5);
   getNewQuestion();
 }
 
-// Function to get a new question
+// Fonction pour obtenir une nouvelle question
 function getNewQuestion() {
   if (questionCounter >= MAX_QUESTIONS || availableQuestions.length === 0) {
-    finishQuiz();
+    finishQuiz(); 
     return;
   }
-
+  
+ 
+  // Sélectionner la question actuelle
   currentQuestion = availableQuestions[questionCounter];
-  question.innerHTML = getQuestionCategoryHTML(currentQuestion);
+  question.innerText = currentQuestion.question;
+
   choices.forEach((choice, index) => {
     const choiceKey = "choice" + (index + 1);
     choice.innerText = currentQuestion.reponses[choiceKey];
     choice.dataset.number = currentQuestion.reponses[choiceKey];
+    // Supprimer les écouteurs d'événements existants
+    choice.removeEventListener('click', handleChoiceClick);
+    // Ajouter un écouteur d'événements
+    choice.addEventListener('click', handleChoiceClick
+    );
   });
 
   acceptingAnswers = true;
@@ -134,41 +214,40 @@ function getNewQuestion() {
   updateProgress();
 }
 
-// Event listener for choice selection
-choices.forEach(choice => {
-  choice.addEventListener('click', e => {
-    if (!acceptingAnswers) return;
-    acceptingAnswers = false;
-    const selectedChoice = e.target;
-    const selectedAnswer = selectedChoice.dataset['number'];
-    const correctAnswer = currentQuestion.reponses['answer'];
+// Écouteur d'événements pour la sélection de choix
+function handleChoiceClick(e) {
+  if (!acceptingAnswers)
+    return;
 
-    const classToApply = selectedAnswer === correctAnswer ? "correct" : "incorrect";
-    selectedChoice.classList.add(classToApply);
+  const selectedChoice = e.target;
+  const selectedAnswer = selectedChoice.dataset['number']; // Selected answer as a string
+  const correctAnswer = currentQuestion.reponses['answer']; // Correct answer as a string
 
-    if (classToApply === "correct") {
-      score += CORRECT_BONUS;
-    }
+  const classToApply = selectedAnswer === correctAnswer ? "correct" : "incorrect";
+  selectedChoice.classList.add(classToApply);
 
-    setTimeout(() => {
-      selectedChoice.classList.remove('correct', 'incorrect');
-      getNewQuestion();
-    }, 1000);
-  });
-});
+  if (classToApply === "correct") {
+    score += CORRECT_BONUS;
+  }
 
-// Timer
+  setTimeout(() => {
+    selectedChoice.classList.remove('correct', 'incorrect');
+    getNewQuestion();
+  }, 1000);
+}
+
+// Minuteur
 const timerDisplay = document.getElementById('time');
 let minutes = 4;
 let seconds = 59;
 let timerInterval;
 
-// Function to start the timer
+// Fonction pour démarrer le minuteur
 function startTimer() {
   timerInterval = setInterval(updateTimer, 1000);
 }
 
-// Function to update the timer display
+// Fonction pour mettre à jour l'affichage du minuteur
 function updateTimer() {
   if (seconds > 0) {
     seconds--;
@@ -185,7 +264,7 @@ function updateTimer() {
   timerDisplay.textContent = displayMinutes + ":" + displaySeconds;
 }
 
-// Function to finish the quiz
+// Fonction pour terminer le quiz
 function finishQuiz() {
   clearInterval(timerInterval);
   if (score >= 12) {
@@ -195,23 +274,6 @@ function finishQuiz() {
   }
 }
 
-function getQuestionCategoryHTML(question) {
-  let categoryHTML = "";
-  const category = getQuestionCategory(question);
-  if (category === "ANGLAIS") {
-    categoryHTML = '<h4 class="mb-4 bg-primary">ANGLAIS</h4>';
-  } else if (category === "IQ") {
-    categoryHTML = '<h4 class="mb-4 bg-success">IQ</h4>';
-  } else if (category === "Technique") {
-    categoryHTML = '<h4 class="mb-4 bg-info">Technique</h4>';
-  }
-  return categoryHTML;
-}
-
-function getQuestionCategory(question) {
-  return question.category; // Assuming category property exists in each question object
-}
-
-// Start the timer when the quiz starts
+// Démarrer le minuteur lorsque le quiz commence
 startTimer();
 startGame();

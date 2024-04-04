@@ -60,20 +60,19 @@
 
   <!-- Custom JavaScript -->
   <script>
-    // Function to redirect to quiz.html and show SweetAlert
+   
     function startQuiz() {
       var fullname = document.getElementById('full-name').value;
       Swal.fire({
         text: ' Get Ready ' + fullname + ' The Quiz is Started!',
         imageUrl: 'https://media.istockphoto.com/id/1488144839/vector/quiz-logo-quiz-time-label-with-question-mark-quiz-emblem-for-business-marketing-and.jpg?s=612x612&w=0&k=20&c=eYgHRl9M7FtpLRCS-ZKABj3IU5E62cgGUTCY2HN5JO8=',
-        imageWidth: 250,
-        imageAlt: 'Custom image'
+        imageWidth: 250
       });
 
-      // Redirect to quiz.html after showing the alert (optional)
+      // Redirect to quiz.html 
       setTimeout(function() {
         window.location.href = 'quiz.html';
-      }, 2000); // Adjust the delay as needed
+      }, 2000); 
     }
   </script>
 
