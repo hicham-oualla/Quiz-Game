@@ -60,6 +60,9 @@ Ce quiz, conçu avec soin et précision, est divisé en trois parties distinctes
 - Bootstrap
 - JavaScript
 
+  ## collaborateurs
+   [ERRAJY-noreddine](https://github.com/ER-RAJY)
+
 ---
 
 
